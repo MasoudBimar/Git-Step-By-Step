@@ -4,13 +4,79 @@ Difficulty: Beginner
 
 Estimated time: 15–25 minutes
 
-## Objective
+## What is Git?
 
-Understand the difference between the working tree, the staging area (index), and commits.
+Git is a tool (version control system) that helps you:
+A version control system (VCS) is software that helps developers to record chnages to files over time in a scpecial database called repository. It allows you to
+save and manage different versions of your files and code.
+work with others, keep track of changes, and undo mistakes.
+
+So we can lookup the history and see who has made changes when and why.
+And we can easily revert to previous versions if something goes wrong.
+
+- Track changes to files over time (Track History & Work together)
+
+we have two types of version control systems:
+
+- **Centralized** VCS (CVCS): A single server stores all the versioned files, and clients check out files from that central place.
+  - Subversion (SVN)
+  - Team Foundation Server (TFS)
+- **Distributed** VCS (DVCS): Clients fully mirror the repository, including its full history.
+- Git
+- Mercurial
+
+Git is the most popular DVCS today: - Free - Open Source - Super fast - Scalable - Powerful branching and merging
 
 ## Prerequisites
 
-- Git installed and configured (`git --version`)
+Git installed and configured (`git --version`)
+
+(Instllation guide) [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git]
+
+You can download Git for free from (git-scm.com) [https://git-scm.com/downloads].
+
+How to use Git:
+
+- Command line (Git Bash, Terminal, PowerShell)
+- GUI tools (GitHub Desktop, Sourcetree, GitKraken)
+- IDE integrations (VS Code, IntelliJ, etc.)
+
+## Check your Git installation
+
+Open your terminal or command prompt and run:
+
+```bash
+git --version
+```
+
+## How to Configure Git
+
+Setting name, email, and default editor and line endings
+in can be done at
+
+- System level (All users)
+- Global level (All repositories for current user)
+- Local level (Current repository)
+
+```bash
+// git config --[config level] [keyName] "[keyValue]"
+// we need double quotes for values with spaces
+
+git config --global user.name "Your Name"
+git config --global user.email you@example.com
+git config --global core.editor "code --wait"   // setting default editor for VS Code
+
+// we need to set end of line handling based on OS(windows: \r\n, mac/linus: \n)
+
+git config --global core.autocrlf true   // for Windows
+git config --global core.autocrlf input  // for Mac/Linux
+
+// for checking the configuration
+git config --list
+
+// for editing the configuration file in default editor
+git config --global --edit
+```
 
 ## Steps
 

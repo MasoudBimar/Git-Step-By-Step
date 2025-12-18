@@ -8,17 +8,17 @@ This repository is a learning log and collection of short, focused experiments t
 
 ## Table of Contents
 
-- **About** — purpose and audience
-- **Goals** — what you'll learn
-- **How to use this repo** — suggested workflow
-- **Learning path** — ordered topics and exercises
-- **Examples** — practical scenarios and solutions
-- **Contributing** — how to add lessons or corrections
+- **Getting Started** — purpose and audience
+- **Snapshots** — what you'll learn
+- **History** — suggested workflow
+- **Branching** — ordered topics and exercises
+- **Collaboration** — practical scenarios and solutions
+- **Rewriting History** — how to add lessons or corrections
 - **License** — repository license
 
 ## About
 
-This repository now includes a lesson template, a lesson index, and a sample lesson in `lessons/01-fundamentals/`.
+This repository now includes a lessons in `lessons/`. Each lesson is a self-contained folder with a `README.md` explaining the objective, steps, expected outcomes, and recovery notes.
 
 This repository is for learners who want to move beyond using Git and toward truly understanding it. Lessons are intentionally short, reproducible, and designed for experimentation in disposable repositories.
 
@@ -57,12 +57,12 @@ cd Git-Step-By-Step
 
 ## Learning path (recommended order)
 
-1. Fundamentals: commits, working tree, staging area
-2. History: viewing logs, reflog, and commit anatomy
-3. Branching: creating, switching, and merging branches
-4. Collaboration basics: remotes, fetch, pull, push
-5. Rewriting history: interactive rebase, amend, and squash
-6. Conflict resolution: detect, resolve, and verify
+1. (Fundamentals)[lessons\01-fundamentals\README.md]: commits, working tree, staging area
+2. (History)[lessons\02-history\README.md]: viewing logs, reflog, and commit anatomy
+3. (Branching)[lessons\03-branching\README.md]: creating, switching, and merging branches
+4. (Collaboration)[lessons\04-collaboration\README.md]: remotes, fetch, pull, push
+5. (Rewriting History)[lessons\05-rewriting-history\README.md]: interactive rebase, amend, and squash
+6. (Conflict Resolution)[lessons\06-conflict-resolution\README.md]: detect, resolve, and verify
 7. Advanced workflows: trunk-based, feature branches, forking
 8. Recovering from mistakes: reset, revert, reflog strategies
 
