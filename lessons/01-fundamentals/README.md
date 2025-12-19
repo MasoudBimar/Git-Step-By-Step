@@ -1,9 +1,5 @@
 # 01 — Fundamentals: Commits, working tree, and staging area
 
-Difficulty: Beginner
-
-Estimated time: 15–25 minutes
-
 ## What is Git?
 
 Git is a tool (version control system) that helps you:
@@ -31,9 +27,9 @@ Git is the most popular DVCS today: - Free - Open Source - Super fast - Scalable
 
 Git installed and configured (`git --version`)
 
-(Instllation guide) [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git]
+[Instllation guide](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
-You can download Git for free from (git-scm.com) [https://git-scm.com/downloads].
+You can download Git for free from [git-scm.com](https://git-scm.com/downloads).
 
 How to use Git:
 
@@ -58,9 +54,13 @@ in can be done at
 - Global level (All repositories for current user)
 - Local level (Current repository)
 
+> [!NOTE]
+> git config --[config level] [keyName] "[keyValue]"
+
+> [!NOTE]
+> We need double quotes for values with spaces
+
 ```bash
-// git config --[config level] [keyName] "[keyValue]"
-// we need double quotes for values with spaces
 
 git config --global user.name "Your Name"
 git config --global user.email you@example.com
@@ -80,16 +80,36 @@ git config --global --edit
 
 ## Steps
 
-1. Initialize a disposable repo and create a file
+### Initialize a disposable repo and create a file
+
+for creating a directory & moving inside the directory using commands:
 
 ```bash
 mkdir git-fundamentals && cd git-fundamentals
-git init
-echo "Hello" > hello.txt
-git status
 ```
 
-2. Stage and commit
+For Initializing the directory with git:
+
+```bash
+git init
+```
+
+> [!NOTE]
+> git init command result is ` Initialized empty Git repository in path/git-fundamnetals/.git/`
+
+Other usefull commands to check the directory:
+
+```bash
+// to list the files
+ls
+
+// to list the files include hiddens
+ls -a
+```
+
+1. Stage and commit
+
+Git stores complete snapshots of your project (conceptually: the content of files at a moment), and each commit points to a snapshot plus some metadata (author, message, parent commit(s)). Internally it’s clever and de-duplicates identical content, but the model you should use is: commit = snapshot.
 
 ```bash
 git add hello.txt
@@ -97,7 +117,7 @@ git commit -m "Add hello.txt"
 git log --oneline --graph --decorate
 ```
 
-3. Edit, stage partially, and observe index
+1. Edit, stage partially, and observe index
 
 ```bash
 echo "Line 2" >> hello.txt
@@ -121,7 +141,3 @@ git diff --staged    # staged changes compared to HEAD
 
 - If you accidentally staged unwanted changes: `git reset <file>` to unstage.
 - To discard working tree changes: `git restore <file>` or `git checkout -- <file>` (older Git versions).
-
-## Files
-
-- `hello.txt` — example file used for exercises.
