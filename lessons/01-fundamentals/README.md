@@ -64,17 +64,17 @@ in can be done at
 
 git config --global user.name "Your Name"
 git config --global user.email you@example.com
-git config --global core.editor "code --wait"   // setting default editor for VS Code
+git config --global core.editor "code --wait"   # setting default editor for VS Code
 
-// we need to set end of line handling based on OS(windows: \r\n, mac/linus: \n)
+# we need to set end of line handling based on OS(windows: \r\n, mac/linus: \n)
 
-git config --global core.autocrlf true   // for Windows
-git config --global core.autocrlf input  // for Mac/Linux
+git config --global core.autocrlf true   # for Windows
+git config --global core.autocrlf input  # for Mac/Linux
 
-// for checking the configuration
+# for checking the configuration
 git config --list
 
-// for editing the configuration file in default editor
+# for editing the configuration file in default editor
 git config --global --edit
 ```
 
@@ -100,10 +100,10 @@ git init
 Other usefull commands to check the directory:
 
 ```bash
-// to list the files
+# to list the files
 ls
 
-// to list the files include hiddens
+# to list the files include hiddens
 ls -a
 ```
 
