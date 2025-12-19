@@ -107,9 +107,15 @@ ls
 ls -a
 ```
 
-1. Stage and commit
+### Stage and commit
 
 Git stores complete snapshots of your project (conceptually: the content of files at a moment), and each commit points to a snapshot plus some metadata (author, message, parent commit(s)). Internally it’s clever and de-duplicates identical content, but the model you should use is: commit = snapshot.
+
+> [!NOTE]
+> Staged means that you have marked a modified file in its current version to go into your next commit snapshot.
+
+> [!NOTE]
+> Committed means that the data is safely stored in your local database
 
 ```bash
 git add hello.txt
@@ -117,20 +123,40 @@ git commit -m "Add hello.txt"
 git log --oneline --graph --decorate
 ```
 
-1. Edit, stage partially, and observe index
+### Edit, stage partially, and observe index
 
 ```bash
-echo "Line 2" >> hello.txt
+echo "Line 2" >> hello.txt # linuxs command to change file
 git add -p hello.txt    # try staging a hunk interactively
 git commit -m "Update hello.txt (partial)"
 ```
 
-4. Inspect the working tree vs HEAD
+> [!NOTE]
+> By just running `git commit` you can use commit templated opend in default editor
+
+### Inspect the working tree vs HEAD
+
+It shows you exactly what changed, line by line, without changing anything.
+
+> [!Note]
+> git diff compares working directory ↔ staging area
 
 ```bash
 git diff             # changes in working tree not staged
 git diff --staged    # staged changes compared to HEAD
 ```
+
+In plain terms, `git status` answers three questions at once:
+
+- What branch am I on?
+- What files have changed?
+- What will happen if I commit right now?
+
+```bash
+git status
+```
+
+Where git status tells you that something changed, git diff tells you how.
 
 ## Expected outcome
 
@@ -141,3 +167,53 @@ git diff --staged    # staged changes compared to HEAD
 
 - If you accidentally staged unwanted changes: `git reset <file>` to unstage.
 - To discard working tree changes: `git restore <file>` or `git checkout -- <file>` (older Git versions).
+
+## Commiting code best practices
+
+Below is a compact set of best practices that actually scale—from solo projects to large monorepos.
+
+### Atomic and purposeful
+
+One commit should do one logical thing.
+
+- Good:
+  - “Fix null handling in user resolver”
+  - “Extract auth guard into shared lib”
+- Bad:
+  - “Fix stuff”
+  - “WIP”
+  - “Changes”
+
+If you need “and”, you probably need another commit
+
+### Commit what you intend, not what you touched
+
+### Choosing the right commit type
+
+Use these consistently:
+
+- `feat`: new user-visible behavior
+- `fix`: bug fix
+- `refactor`: code change with no behavior change
+- `test`: add or adjust tests
+- `docs`: documentation only
+- `chore`: tooling, configs, dependencies
+- `perf`: performance improvement
+- `ci`: CI/CD changes
+- `build`: build system changes
+
+Never do these:
+
+- Committing generated files (unless required)
+- Mixing refactor + behavior change
+- “WIP” on main branches
+- Massive “cleanup” commits with no explanation
+- Fixing formatting and logic in the same commit
+
+Run this mentally:
+
+- Does this commit do one thing?
+- Would I revert this commit alone if needed?
+- Does the summary make sense without context?
+- Do tests pass?
+- Would a teammate thank me for this message?
